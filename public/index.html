@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passage | Verified Long-Term Rentals & Serviced Residences for Foreign Expats in India</title>
+  
+  <!-- SEO & OpenGraph Metadata -->
+  <meta name="description" content="Verified, long-term luxury rentals, serviced apartments, and villas tailored for foreign expats, diplomats, and corporate executives moving to India. Includes FRRO Form C compliance, dual-currency pricing, and escrow payment protection.">
+  <meta name="keywords" content="expat housing india, long term rentals chennai, bangalore serviced apartments, frro form c registration, luxury expat villas mumbai, embassy rentals india">
+  
+  <!-- Tailwind CSS CDN with Enhanced Luxury Color Palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+              950: '#042f2e',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            whatsapp: {
+              500: '#25D366',
+              600: '#128C7E',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet OpenStreetMap Local CSS & JS -->
+  <link rel="stylesheet" href="/css/vendor/leaflet.css" />
+  <script src="/js/vendor/leaflet.js"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-leaflet-marker {
+      background: transparent;
+      border: none;
+    }
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+
+  <!-- Local Production React 18 UMD Scripts (Zero Network CDN Dependency) -->
+  <script src="/js/vendor/react.min.js"></script>
+  <script src="/js/vendor/react-dom.min.js"></script>
+
+  <!-- Global Error Logger -->
+  <script>
+    window.onerror = function(msg, url, lineNo, columnNo, error) {
+      console.error('Passage Runtime Error:', msg, 'at', url, lineNo);
+      var errDiv = document.getElementById('passage-error-banner');
+      if (!errDiv) {
+        errDiv = document.createElement('div');
+        errDiv.id = 'passage-error-banner';
+        errDiv.style = 'position:fixed;bottom:10px;right:10px;background:#ef4444;color:white;padding:12px;border-radius:12px;z-index:99999;font-size:12px;font-weight:bold;box-shadow:0 10px 25px rgba(0,0,0,0.3);';
+        document.body.appendChild(errDiv);
+      }
+      errDiv.innerHTML = '⚠️ App Error: ' + msg + ' (Line ' + lineNo + ')';
+      return false;
+    };
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- React Application Root -->
+  <div id="root"></div>
+
+  <!-- Passage Production App Bundle v600 -->
+  <script src="/js/app-bundle.js?v=600"></script>
+
+</body>
+</html>

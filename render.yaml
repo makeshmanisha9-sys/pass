@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: passage-rental-platform
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        value: mongodb+srv://makeshmanisha9_db_user:UEUG6eLwmH5UOUDv@cluster0.fahkt4y.mongodb.net/passage?retryWrites=true&w=majority
+      - key: JWT_SECRET
+        value: passage_super_secret_jwt_key_2026
