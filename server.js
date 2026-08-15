@@ -69,7 +69,12 @@ const startServer = async () => {
   });
 
   server.on('error', (err) => {
-    console.error(`❌ Server startup error: ${err.message}`);
+    if (err.code === 'EADDRINUSE') {
+      console.log(`💡 Passage Server is ALREADY running on port ${PORT}!`);
+      console.log(`👉 Open http://localhost:${PORT} in your browser.`);
+    } else {
+      console.error(`❌ Server startup error: ${err.message}`);
+    }
   });
 };
 
