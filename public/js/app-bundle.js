@@ -1152,7 +1152,7 @@ window.HomePage = function HomePage({
     onSubmit: handleSearchSubmit,
     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "p-2 sm:border-r border-slate-200"
+    className: "p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none sm:border-r border-slate-200"
   }, /*#__PURE__*/React.createElement("label", {
     className: "block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1"
   }, "Destination"), /*#__PURE__*/React.createElement("select", {
@@ -1178,7 +1178,7 @@ window.HomePage = function HomePage({
   }, "Kochi"), /*#__PURE__*/React.createElement("option", {
     value: "Jaipur"
   }, "Jaipur"))), /*#__PURE__*/React.createElement("div", {
-    className: "p-2 sm:border-r border-slate-200"
+    className: "p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none sm:border-r border-slate-200"
   }, /*#__PURE__*/React.createElement("label", {
     className: "block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1"
   }, "Check-in"), /*#__PURE__*/React.createElement("input", {
@@ -1187,7 +1187,7 @@ window.HomePage = function HomePage({
     onChange: e => setSearchCheckIn(e.target.value),
     className: "w-full bg-transparent font-semibold text-xs text-slate-800 focus:outline-none"
   })), /*#__PURE__*/React.createElement("div", {
-    className: "p-2 lg:border-r border-slate-200"
+    className: "p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none lg:border-r border-slate-200"
   }, /*#__PURE__*/React.createElement("label", {
     className: "block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1"
   }, "Check-out"), /*#__PURE__*/React.createElement("input", {
@@ -1196,7 +1196,7 @@ window.HomePage = function HomePage({
     onChange: e => setSearchCheckOut(e.target.value),
     className: "w-full bg-transparent font-semibold text-xs text-slate-800 focus:outline-none"
   })), /*#__PURE__*/React.createElement("div", {
-    className: "p-2"
+    className: "p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none"
   }, /*#__PURE__*/React.createElement("label", {
     className: "block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1"
   }, "Guests"), /*#__PURE__*/React.createElement("select", {

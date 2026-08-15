@@ -67,7 +67,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
             <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center">
               
               {/* Destination */}
-              <div className="p-2 sm:border-r border-slate-200">
+              <div className="p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none sm:border-r border-slate-200">
                 <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1">
                   Destination
                 </label>
@@ -89,7 +89,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
               </div>
 
               {/* Check-In */}
-              <div className="p-2 sm:border-r border-slate-200">
+              <div className="p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none sm:border-r border-slate-200">
                 <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1">
                   Check-in
                 </label>
@@ -102,7 +102,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
               </div>
 
               {/* Check-Out */}
-              <div className="p-2 lg:border-r border-slate-200">
+              <div className="p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none lg:border-r border-slate-200">
                 <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1">
                   Check-out
                 </label>
@@ -115,7 +115,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
               </div>
 
               {/* Guests */}
-              <div className="p-2">
+              <div className="p-3 bg-slate-50/80 sm:bg-transparent rounded-2xl sm:rounded-none">
                 <label className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-600 mb-1">
                   Guests
                 </label>
