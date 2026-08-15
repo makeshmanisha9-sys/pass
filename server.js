@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 require('dotenv').config();
 
@@ -19,6 +20,17 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static uploaded files & frontend public folder
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware to ensure DB connection is ready before processing API requests
+app.use('/api', async (req, res, next) => {
+  const conn = await connectDB();
+  if (!conn || mongoose.connection.readyState !== 1) {
+    return res.status(503).json({ 
+      message: 'Database connecting to MongoDB Cloud. Please check MONGODB_URI on Render & Atlas IP Access List (0.0.0.0/0).' 
+    });
+  }
+  next();
+});
 
 // API Route Register
 app.use('/api/auth', require('./routes/authRoutes'));

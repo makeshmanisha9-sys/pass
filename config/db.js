@@ -29,7 +29,8 @@ const connectDB = async () => {
     }
 
     const conn = await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000,
     });
 
     isConnected = true;
@@ -37,7 +38,7 @@ const connectDB = async () => {
     return conn;
   } catch (error) {
     console.error(`❌ MongoDB Connection Error: ${error.message}`);
-    // Do not exit process on cloud hosts so web server stays online
+    isConnected = false;
     return null;
   }
 };
