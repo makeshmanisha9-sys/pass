@@ -156,7 +156,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
       </section>
 
       {/* Popular Destinations Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="w-full px-4 sm:px-8 lg:px-12 space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-slate-200 pb-4">
           <div>
             <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">Explore Top Metros</span>
@@ -193,7 +193,7 @@ window.HomePage = function HomePage({ properties, activeCurrency, currencyRates,
       </section>
 
       {/* Featured Expat Residences */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="w-full px-4 sm:px-8 lg:px-12 space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">Handpicked Listings</span>

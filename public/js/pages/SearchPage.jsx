@@ -110,7 +110,7 @@ window.SearchPage = function SearchPage({ initialFilters = {}, activeCurrency, c
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <div className="w-full px-4 sm:px-8 lg:px-12 py-8 space-y-6">
       
       {/* Search Header Bar */}
       <div className="bg-white p-4 sm:p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">

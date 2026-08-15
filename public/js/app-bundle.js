@@ -358,7 +358,7 @@ window.Navbar = function Navbar({
   return /*#__PURE__*/React.createElement("header", {
     className: "sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    className: "w-full px-4 sm:px-8 lg:px-12"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-between h-20"
   }, /*#__PURE__*/React.createElement("div", {
@@ -666,7 +666,7 @@ window.Footer = function Footer({
   return /*#__PURE__*/React.createElement("footer", {
     className: "bg-slate-950 text-slate-400 text-xs border-t border-slate-800 mt-auto"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+    className: "w-full px-4 sm:px-8 lg:px-12 py-12"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-1 md:grid-cols-5 gap-8 mb-12"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1233,7 +1233,7 @@ window.HomePage = function HomePage({
   }, /*#__PURE__*/React.createElement("i", {
     className: "fa-solid fa-vault text-teal-400"
   }), /*#__PURE__*/React.createElement("span", null, "Multi-Currency Escrow Deposit"))))), /*#__PURE__*/React.createElement("section", {
-    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+    className: "w-full px-4 sm:px-8 lg:px-12 space-y-6"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-slate-200 pb-4"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
@@ -1268,7 +1268,7 @@ window.HomePage = function HomePage({
   }, c.name), /*#__PURE__*/React.createElement("p", {
     className: "text-[11px] text-slate-300 truncate"
   }, c.tag)))))), /*#__PURE__*/React.createElement("section", {
-    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6"
+    className: "w-full px-4 sm:px-8 lg:px-12 space-y-6"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-between"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
@@ -1467,7 +1467,7 @@ window.SearchPage = function SearchPage({
     setShortTerm(false);
   };
   return /*#__PURE__*/React.createElement("div", {
-    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6"
+    className: "w-full px-4 sm:px-8 lg:px-12 py-8 space-y-6"
   }, /*#__PURE__*/React.createElement("div", {
     className: "bg-white p-4 sm:p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
