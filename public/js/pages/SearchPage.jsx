@@ -4,6 +4,7 @@ window.SearchPage = function SearchPage({ initialFilters = {}, activeCurrency, c
   const [properties, setProperties] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [viewMode, setViewMode] = React.useState('grid'); // 'grid' or 'map'
+  const [showMobileFilters, setShowMobileFilters] = React.useState(false);
 
   // Filters State
   const [city, setCity] = React.useState(initialFilters.city || 'All');
@@ -164,11 +165,25 @@ window.SearchPage = function SearchPage({ initialFilters = {}, activeCurrency, c
         </div>
       </div>
 
+      {/* Mobile Filter Toggle Button */}
+      <div className="lg:hidden flex items-center justify-between bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
+        <button 
+          onClick={() => setShowMobileFilters(!showMobileFilters)}
+          className="w-full bg-slate-900 text-teal-400 hover:bg-slate-800 font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-between transition-all"
+        >
+          <span className="flex items-center space-x-2">
+            <i className="fa-solid fa-sliders"></i>
+            <span>{showMobileFilters ? 'Hide Search Filters' : 'Filter Homes (City, Budget, Type)'}</span>
+          </span>
+          <i className={`fa-solid ${showMobileFilters ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+        </button>
+      </div>
+
       {/* Main Layout: Sidebar Filters + Property Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
         
         {/* Filters Sidebar */}
-        <aside className="lg:col-span-1 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 text-xs text-slate-700">
+        <aside className={`lg:col-span-1 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 text-xs text-slate-700 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
           
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-extrabold text-sm text-slate-900 flex items-center space-x-2">

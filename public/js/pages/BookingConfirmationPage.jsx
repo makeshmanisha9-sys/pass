@@ -33,7 +33,7 @@ window.BookingConfirmationPage = function BookingConfirmationPage({ booking, act
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
       
       {/* Top Controls (Hidden when printing) */}
-      <div className="print:hidden flex items-center justify-between bg-slate-900 text-white p-4 rounded-2xl shadow-xl">
+      <div className="print:hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-900 text-white p-4 rounded-2xl shadow-xl">
         <div className="flex items-center space-x-3">
           <div className="w-9 h-9 rounded-xl bg-teal-500 text-slate-950 flex items-center justify-center font-extrabold text-lg">
             ✓

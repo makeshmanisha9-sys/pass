@@ -960,9 +960,9 @@ window.AIAssistantModal = function AIAssistantModal({
   };
   const samplePrompts = ["Find budget-friendly apartments near Chennai IT parks", "How does FRRO Form C visa paperwork work for expats?", "Show sea-facing luxury homes in Mumbai under $1200", "Show tourist places in Goa"];
   return /*#__PURE__*/React.createElement("div", {
-    className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md"
+    className: "fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-md"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "bg-slate-900 border-2 border-teal-500/40 rounded-3xl w-full max-w-2xl h-[620px] flex flex-col shadow-2xl overflow-hidden text-slate-100 animate-fadeIn"
+    className: "bg-slate-900 border-2 border-teal-500/40 rounded-3xl w-full max-w-2xl h-[92vh] sm:h-[620px] flex flex-col shadow-2xl overflow-hidden text-slate-100 animate-fadeIn"
   }, /*#__PURE__*/React.createElement("div", {
     className: "bg-slate-950 px-6 py-4 border-b border-slate-800 flex items-center justify-between"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1373,6 +1373,7 @@ window.SearchPage = function SearchPage({
   const [properties, setProperties] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [viewMode, setViewMode] = React.useState('grid'); // 'grid' or 'map'
+  const [showMobileFilters, setShowMobileFilters] = React.useState(false);
 
   // Filters State
   const [city, setCity] = React.useState(initialFilters.city || 'All');
@@ -1512,9 +1513,20 @@ window.SearchPage = function SearchPage({
   }, /*#__PURE__*/React.createElement("i", {
     className: "fa-solid fa-map-location-dot mr-1"
   }), " Map")))), /*#__PURE__*/React.createElement("div", {
+    className: "lg:hidden flex items-center justify-between bg-white p-3 rounded-2xl border border-slate-200 shadow-sm"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowMobileFilters(!showMobileFilters),
+    className: "w-full bg-slate-900 text-teal-400 hover:bg-slate-800 font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-between transition-all"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "flex items-center space-x-2"
+  }, /*#__PURE__*/React.createElement("i", {
+    className: "fa-solid fa-sliders"
+  }), /*#__PURE__*/React.createElement("span", null, showMobileFilters ? 'Hide Search Filters' : 'Filter Homes (City, Budget, Type)')), /*#__PURE__*/React.createElement("i", {
+    className: `fa-solid ${showMobileFilters ? 'fa-chevron-up' : 'fa-chevron-down'}`
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-1 lg:grid-cols-4 gap-8 items-start"
   }, /*#__PURE__*/React.createElement("aside", {
-    className: "lg:col-span-1 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 text-xs text-slate-700"
+    className: `lg:col-span-1 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 text-xs text-slate-700 ${showMobileFilters ? 'block' : 'hidden lg:block'}`
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-between pb-3 border-b border-slate-100"
   }, /*#__PURE__*/React.createElement("h3", {
@@ -2398,7 +2410,7 @@ window.BookingConfirmationPage = function BookingConfirmationPage({
   return /*#__PURE__*/React.createElement("div", {
     className: "max-w-4xl mx-auto px-4 py-8 space-y-6"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "print:hidden flex items-center justify-between bg-slate-900 text-white p-4 rounded-2xl shadow-xl"
+    className: "print:hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-900 text-white p-4 rounded-2xl shadow-xl"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center space-x-3"
   }, /*#__PURE__*/React.createElement("div", {
