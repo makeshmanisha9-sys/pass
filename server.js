@@ -27,6 +27,11 @@ app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
 
+// Health check endpoint for Render
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // SPA Fallback: Serve index.html for all frontend page navigation
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
@@ -45,26 +50,26 @@ const startServer = async () => {
   await connectDB();
 
   // Fast auto-seed check
-  const Property = require('./models/Property');
-  const count = await Property.countDocuments();
-  if (count === 0) {
-    console.log('Database empty on startup. Auto-seeding Passage demo dataset...');
-    const seedFunc = require('./seedDataHelper');
-    await seedFunc();
+  try {
+    const Property = require('./models/Property');
+    const count = await Property.countDocuments();
+    if (count === 0) {
+      console.log('Database empty on startup. Auto-seeding Passage demo dataset...');
+      const seedFunc = require('./seedDataHelper');
+      await seedFunc();
+    }
+  } catch (seedErr) {
+    console.error('Auto-seed check warning:', seedErr.message);
   }
 
-  const server = app.listen(PORT, () => {
+  const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`====================================================`);
-    console.log(`🚀 Passage Server STRICTLY running at: http://localhost:${PORT}`);
+    console.log(`🚀 Passage Server running at: http://0.0.0.0:${PORT}`);
     console.log(`====================================================`);
   });
 
   server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.error(`❌ Port ${PORT} is occupied. Please clear port ${PORT} or restart.`);
-    } else {
-      console.error(`❌ Server startup error: ${err.message}`);
-    }
+    console.error(`❌ Server startup error: ${err.message}`);
   });
 };
 
