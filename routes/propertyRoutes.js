@@ -52,7 +52,8 @@ router.get('/', async (req, res) => {
     }
 
     if (propertyType && propertyType !== 'All') {
-      query.propertyType = propertyType;
+      const cleanType = propertyType.replace(/s$/i, '').trim();
+      query.propertyType = new RegExp(cleanType, 'i');
     }
 
     if (rating && rating !== 'All') {
