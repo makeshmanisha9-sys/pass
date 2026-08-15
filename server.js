@@ -6,6 +6,11 @@ require('dotenv').config();
 
 const app = express();
 
+// Health check endpoint for Render (must be top-level before static files)
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -26,11 +31,6 @@ app.use('/api/wishlist', require('./routes/wishlistRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
-
-// Health check endpoint for Render
-app.get('/healthz', (req, res) => {
-  res.status(200).send('OK');
-});
 
 // SPA Fallback: Serve index.html for all frontend page navigation
 app.get('*', (req, res) => {
