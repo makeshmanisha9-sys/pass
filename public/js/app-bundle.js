@@ -1579,12 +1579,18 @@ window.SearchPage = function SearchPage({
   }, /*#__PURE__*/React.createElement("option", {
     value: "All"
   }, "All Property Types"), /*#__PURE__*/React.createElement("option", {
+    value: "Villa"
+  }, "Villa (All Villas)"), /*#__PURE__*/React.createElement("option", {
+    value: "Sea-Facing Villa"
+  }, "Sea-Facing Villa"), /*#__PURE__*/React.createElement("option", {
+    value: "Lake View Villa"
+  }, "Lake View Villa"), /*#__PURE__*/React.createElement("option", {
+    value: "Bungalow"
+  }, "Bungalow & Haveli"), /*#__PURE__*/React.createElement("option", {
     value: "Penthouse"
   }, "Penthouse"), /*#__PURE__*/React.createElement("option", {
     value: "Executive Loft"
   }, "Executive Loft"), /*#__PURE__*/React.createElement("option", {
-    value: "Sea-Facing Villa"
-  }, "Sea-Facing Villa"), /*#__PURE__*/React.createElement("option", {
     value: "Heritage Home"
   }, "Heritage Home"), /*#__PURE__*/React.createElement("option", {
     value: "Studio"

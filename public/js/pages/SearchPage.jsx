@@ -230,9 +230,12 @@ window.SearchPage = function SearchPage({ initialFilters = {}, activeCurrency, c
               className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-xs font-semibold focus:outline-none"
             >
               <option value="All">All Property Types</option>
+              <option value="Villa">Villa (All Villas)</option>
+              <option value="Sea-Facing Villa">Sea-Facing Villa</option>
+              <option value="Lake View Villa">Lake View Villa</option>
+              <option value="Bungalow">Bungalow & Haveli</option>
               <option value="Penthouse">Penthouse</option>
               <option value="Executive Loft">Executive Loft</option>
-              <option value="Sea-Facing Villa">Sea-Facing Villa</option>
               <option value="Heritage Home">Heritage Home</option>
               <option value="Studio">Studio</option>
               <option value="Serviced Apartment">Serviced Apartment</option>
