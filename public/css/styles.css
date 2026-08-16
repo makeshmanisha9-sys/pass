@@ -60,8 +60,10 @@
 
 html, body {
   scroll-behavior: smooth;
+  width: 100% !important;
   max-width: 100vw !important;
   overflow-x: hidden !important;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
@@ -77,7 +79,6 @@ body {
   line-height: 1.5;
   cursor: default;
   transition: background 0.3s ease, color 0.3s ease;
-  perspective: 1200px;
 }
 
 ::selection {
@@ -93,6 +94,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 button {
@@ -104,40 +106,48 @@ button {
 }
 
 .wrap {
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   position: relative;
   z-index: 2;
 }
 
-/* BULLETPROOF MOBILE RESPONSIVE CSS FALLBACKS */
-@media (max-width: 768px) {
+/* BULLETPROOF MOBILE RESPONSIVE CSS MEDIA QUERIES */
+@media (max-width: 640px) {
   html, body, #root {
     width: 100% !important;
     max-width: 100vw !important;
     overflow-x: hidden !important;
   }
 
-  .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5 {
-    grid-template-columns: minmax(0, 1fr) !important;
+  /* Grid Layouts Stack Vertically on Mobile */
+  .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5,
+  .sm\:grid-cols-2, .sm\:grid-cols-4, .md\:grid-cols-5, .lg\:grid-cols-4, .lg\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   }
 
-  .lg\:grid-cols-4, .lg\:grid-cols-3, .lg\:grid-cols-5, .md\:grid-cols-5, .sm\:grid-cols-4, .sm\:grid-cols-2 {
-    grid-template-columns: minmax(0, 1fr) !important;
+  /* Header Padding on Mobile */
+  header {
+    padding: 0 !important;
   }
 
-  .hidden.lg\:flex, .hidden.md\:flex, .hidden.sm\:block {
-    display: none !important;
-  }
-
-  .lg\:hidden, .md\:hidden {
-    display: block !important;
-  }
-
-  .p-4, .p-6, .p-8, .p-12, .px-4, .px-6, .px-8, .px-12 {
+  /* Card Padding on Mobile */
+  .p-6, .p-8, .p-12, .px-6, .px-8, .px-12 {
     padding-left: 12px !important;
     padding-right: 12px !important;
+  }
+
+  /* Sticky Property Details Sidebar on Mobile */
+  .sticky.top-28 {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  /* Touch Form Controls */
+  input, select, textarea {
+    font-size: 14px !important;
   }
 
   h1 {
@@ -147,10 +157,5 @@ button {
 
   h2 {
     font-size: 1.35rem !important;
-  }
-
-  img {
-    max-width: 100% !important;
-    height: auto !important;
   }
 }

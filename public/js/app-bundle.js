@@ -4628,12 +4628,20 @@ window.App = function App() {
     }
   };
   const handleStartBooking = (propertyId, bookingDetails) => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      return;
+    }
     const prop = selectedPropertyForBooking || properties.find(p => p._id === propertyId);
     setSelectedPropertyForBooking(prop);
     setBookingDraft(bookingDetails);
     handleNavigate('booking');
   };
   const handleProceedToPayment = finalDraft => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      return;
+    }
     setBookingDraft(finalDraft);
     handleNavigate('payment');
   };

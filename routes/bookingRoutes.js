@@ -36,10 +36,7 @@ router.post('/', async (req, res) => {
     }
 
     if (!tenantId) {
-      const defaultTenant = await User.findOne({ role: 'tenant' });
-      if (defaultTenant) {
-        tenantId = defaultTenant._id;
-      }
+      return res.status(401).json({ message: 'Authentication required. Please sign in or register to complete your booking.' });
     }
 
     if (!tenantId) {
