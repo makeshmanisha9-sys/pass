@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-// Health check endpoint for Render (must be top-level before static files)
+// Health check endpoint for Render (must be top-level before static files & DB calls)
 app.get('/healthz', (req, res) => {
   res.status(200).send('OK');
 });
@@ -57,37 +57,37 @@ app.use((err, req, res, next) => {
 
 const PORT = parseInt(process.env.PORT, 10) || 5000;
 
-// Start Server
-const startServer = async () => {
-  await connectDB();
+// Start Server immediately so Render health check (/healthz) succeeds in 10ms without 502 Bad Gateway
+const server = app.listen(PORT, '0.0.0.0', () => {
+  console.log(`====================================================`);
+  console.log(`🚀 Passage Server running at: http://0.0.0.0:${PORT}`);
+  console.log(`====================================================`);
 
-  // Fast auto-seed check
-  try {
-    const Property = require('./models/Property');
-    const count = await Property.countDocuments();
-    if (count === 0) {
-      console.log('Database empty on startup. Auto-seeding Passage demo dataset...');
-      const seedFunc = require('./seedDataHelper');
-      await seedFunc();
+  // Asynchronously connect DB & perform auto-seed check in background
+  connectDB().then(async (conn) => {
+    if (conn) {
+      try {
+        const Property = require('./models/Property');
+        const count = await Property.countDocuments();
+        if (count === 0) {
+          console.log('Database empty on startup. Auto-seeding Passage demo dataset...');
+          const seedFunc = require('./seedDataHelper');
+          await seedFunc();
+        }
+      } catch (seedErr) {
+        console.error('Auto-seed check warning:', seedErr.message);
+      }
     }
-  } catch (seedErr) {
-    console.error('Auto-seed check warning:', seedErr.message);
+  }).catch(err => {
+    console.error('Background DB connection error:', err.message);
+  });
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`💡 Passage Server is ALREADY running on port ${PORT}!`);
+    console.log(`👉 Open http://localhost:${PORT} in your browser.`);
+  } else {
+    console.error(`❌ Server startup error: ${err.message}`);
   }
-
-  const server = app.listen(PORT, '0.0.0.0', () => {
-    console.log(`====================================================`);
-    console.log(`🚀 Passage Server running at: http://0.0.0.0:${PORT}`);
-    console.log(`====================================================`);
-  });
-
-  server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.log(`💡 Passage Server is ALREADY running on port ${PORT}!`);
-      console.log(`👉 Open http://localhost:${PORT} in your browser.`);
-    } else {
-      console.error(`❌ Server startup error: ${err.message}`);
-    }
-  });
-};
-
-startServer();
+});
